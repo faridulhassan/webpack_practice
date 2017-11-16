@@ -1,60 +1,22 @@
 const path = require('path');
-const webpack = require('webpack');
-
-const ROOT = path.resolve(__dirname, 'src/ts');
-const DESTINATION = path.resolve(__dirname, 'dist/js');
-
 module.exports = {
-  // context: ROOT,
-
-  entry: {
-    'main': './src/ts/index.ts'
-  },
-
+  entry: './src/js/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist/js')
+    path: path.resolve(__dirname, 'dist/js'),
+    filename: "manual.bundle.js"
   },
-
-/*  resolve: {
-    extensions: ['.ts', '.js'],
-    modules: [
-      ROOT,
-      'node_modules'
-    ]
-  },*/
-
   module: {
     rules: [
-      /****************
-       * PRE-LOADERS
-       *****************/
-/*
       {
-        enforce: 'pre',
         test: /\.js$/,
-        use: 'source-map-loader'
-      },
-      {
-        enforce: 'pre',
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: 'tslint-loader'
-      },
-*/
-
-      /****************
-       * LOADERS
-       *****************/
-      {
-        test: /\.ts$/,
-        exclude: [/node_modules/],
-        use: 'awesome-typescript-loader'
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env'],
+            pluginss: [require('@babel/plugin-transform-object-rest-spread')],
+          }
+        }
       }
     ]
-  },
-
-  // devtool: 'cheap-module-source-map',
-  devServer: {}
+  }
 };
-
