@@ -65,13 +65,40 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-let years = [2015, 2016, 2017];
+"use strict";
 
-years.map(item => item);
+
+var _menu = _interopRequireDefault(__webpack_require__(1));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var years = [2015, 2016, 2017];
+years.map(function (item) {
+  return item;
+});
 console.log(years);
 
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function Menu() {
+  var menu = document.querySelector('#menu');
+  menu.style.width = 40;
+}
+
+var _default = Menu;
+exports.default = _default;
 
 /***/ })
 /******/ ]);
