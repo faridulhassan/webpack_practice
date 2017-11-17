@@ -75,10 +75,13 @@ var _menu = _interopRequireDefault(__webpack_require__(1));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var years = [2015, 2016, 2017];
+/*I am a comment*/
+
 years.map(function (item) {
   return item;
 });
 console.log(years);
+console.log(_menu.default);
 
 /***/ }),
 /* 1 */
