@@ -1,10 +1,16 @@
 const path = require('path');
+const {CheckerPlugin} = require('awesome-typescript-loader');
+
 module.exports = {
-  entry: './src/js/index.js',
+  entry: './src/ts/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist/js'),
-    filename: "manual.bundle.js",
+    filename: "ts.bundle.js",
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -17,7 +23,17 @@ module.exports = {
             // comments: true,
           }
         }
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'awesome-typescript-loader'
+        }
       }
     ]
-  }
+  },
+  plugins: [
+    new CheckerPlugin()
+  ]
 };
